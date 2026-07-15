@@ -206,11 +206,11 @@ body { background: #FFFFFF; font-family: 'PingFang SC','Noto Sans SC',-apple-sys
 
 
 /* 首页内容流 */
-.home-feed { width: 750px; background: #FFFFFF; padding-bottom: 200px; }
+.home-feed { width: 750px; background: #FFFFFF; padding-bottom: 0; overflow: hidden; }
 .hf-hero { position: relative; width: 750px; }
 .hf-hero img { width: 750px; display: block; }
 .hf-badge { position: absolute; top: 40px; right: 16px; display: inline-flex; align-items: center; gap: 5px; font-size: 22px; font-weight: 700; color: #FFFFFF; background: linear-gradient(90deg,#FF7A3D,#FF5000); padding: 8px 18px; border-radius: 18px; box-shadow: 0 4px 16px rgba(255,80,0,0.4); font-family: 'PingFang SC'; z-index: 2; }
-.hf-body { width: 750px; display: block; }
+.hf-body { width: 750px; display: block; clip-path: inset(0 0 52px 0); margin-bottom: -52px; }
 
 /* ═══ 宝贝tab:导购三商品卡 ═══ */
 .af-goods { display: none; gap: 12px; margin-top: 16px; }
