@@ -90,16 +90,16 @@ body { background: #FFFFFF; font-family: 'PingFang SC','Noto Sans SC',-apple-sys
 .tag-text .b { color: var(--color-black); }
 
 /* ═══ 顶部智能服务整体模块：完整态一张卡 / 收起态一张紧凑卡 ═══ */
-.agent-region { display: contents; --agent-surface: #FFF4E9; --agent-surface-soft: #FFF9F3; --agent-border: #FFD3A8; --agent-divider: #F2D5B4; --agent-accent: #FF6200; --compact-opacity: 0; --compact-shift: -10px; --compact-scale: 0.985; --full-search-opacity: 1; --full-search-scale: 1; }
+.agent-region { display: contents; --agent-surface: #FFF4E9; --agent-surface-soft: #FFF9F3; --agent-border: #FFD3A8; --agent-divider: #F2D5B4; --agent-accent: #FF6200; --agent-radius: 24px; --agent-shadow: 0 10px 32px rgba(17,25,45,0.10); --compact-opacity: 0; --compact-backdrop-opacity: 0; --compact-backdrop-height: 191px; --compact-shift: 0px; --compact-scale: 0.985; --full-search-opacity: 1; --full-search-scale: 1; }
 .sticky-header { height: 0; padding-bottom: 0; background: transparent; overflow: visible; }
 .sticky-header .status-bar { background: #FFFFFF; }
 .sticky-header.is-collapsed { padding-bottom: 0; }
 .sticky-header.is-stuck:not(.is-collapsed)::after { opacity: 0; }
 .sticky-header::after { display: none; }
-.sticky-header::before { content: ''; position: absolute; top: 0; left: 0; right: 0; z-index: 1; height: 161px; background: #FFFFFF; opacity: var(--compact-opacity); will-change: opacity; pointer-events: none; }
+.sticky-header::before { content: ''; position: absolute; top: 0; left: 0; right: 0; z-index: 1; height: var(--compact-backdrop-height); background: #FFFFFF; opacity: var(--compact-backdrop-opacity); will-change: opacity, height; pointer-events: none; }
 
 /* 收起态：固定尺寸覆盖接管，不再通过 max-height 从上向下展开 */
-.agent-compact { position: absolute; top: 0; left: 12px; z-index: 2; width: 726px; height: 161px; margin: 0; border: none; border-radius: 20px; background: var(--agent-surface); overflow: hidden; opacity: var(--compact-opacity); transform: translateY(var(--compact-shift)) scale(var(--compact-scale)); transform-origin: top center; box-shadow: 0 10px 30px rgba(255,98,0,0.10); will-change: opacity, transform; pointer-events: none; }
+.agent-compact { position: absolute; top: 12px; left: 12px; z-index: 2; width: 726px; height: 161px; margin: 0; border: none; border-radius: var(--agent-radius); background: var(--agent-surface); overflow: hidden; opacity: var(--compact-opacity); transform: translateY(var(--compact-shift)) scale(var(--compact-scale)); transform-origin: top center; box-shadow: var(--agent-shadow); will-change: opacity, transform; pointer-events: none; }
 .sticky-header.is-collapsed .agent-compact { pointer-events: auto; }
 .agent-compact .nav-bar { width: 724px; height: 88px; padding: 6px 16px; gap: 12px; background: transparent; }
 .agent-compact .nav-search { width: auto; height: 68px; flex: 1; min-width: 0; border-radius: 18px; background: rgba(255,255,255,0.72); }
@@ -114,16 +114,16 @@ body { background: #FFFFFF; font-family: 'PingFang SC','Noto Sans SC',-apple-sys
 .agent-float__refresh svg { width: 25px; height: 25px; display: block; }
 .agent-float__refresh:active { color: #FF6200; background: rgba(255,98,0,0.10); transform: rotate(28deg) scale(0.94); }
 
-/* 完整态：搜索保持白底，店招与导购单独承载在 Agent 卡片中 */
-.agent-fusion { width: 750px; background: #FFFFFF; padding: 0 12px 14px; border-radius: 0; border: none; box-shadow: none; }
-.agent-fusion__card { width: 726px; background: #FFFFFF; border: none; border-radius: 0; overflow: visible; box-shadow: none; }
-.af-search { width: 724px; height: 96px; padding: 10px 16px; display: flex; align-items: center; gap: 12px; background: #FFFFFF; opacity: var(--full-search-opacity); transform: scale(var(--full-search-scale)); transform-origin: top center; will-change: opacity, transform; }
+/* 完整态：搜索、店招与导购收进同一张悬浮 Agent 卡 */
+.agent-fusion { width: 750px; background: #FFFFFF; padding: 12px 12px 24px; border-radius: 0; border: none; box-shadow: none; }
+.agent-fusion__card { width: 726px; background: #FFFFFF; border: none; border-radius: var(--agent-radius); overflow: hidden; box-shadow: var(--agent-shadow); }
+.af-search { width: 726px; height: 96px; padding: 10px 16px; display: flex; align-items: center; gap: 12px; background: #FFFFFF; opacity: var(--full-search-opacity); transform: scale(var(--full-search-scale)); transform-origin: top center; will-change: opacity, transform; }
 .af-back { width: 40px; height: 40px; flex-shrink: 0; }
 .af-search-box { height: 72px; flex: 1; min-width: 0; border-radius: 18px; position: relative; padding: 10px 18px 10px 14px; display: flex; align-items: center; justify-content: space-between; background: #FFFFFF; }
 .af-search-box::before { content: ''; position: absolute; inset: 0; border-radius: 18px; padding: 1px; background: linear-gradient(110deg,#FF7A23,#FF0036,#FF7A23); -webkit-mask: linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none; opacity: 0.82; }
 .af-more { width: 44px; height: 44px; flex-shrink: 0; }
 .af-section-divider { display: none; }
-.af-agent-card { width: 726px; margin-top: 8px; background: #FFF4E9; border: none; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 28px rgba(255,98,0,0.08); }
+.af-agent-card { width: 726px; margin-top: 0; background: #FFF4E9; border: none; border-radius: 0; overflow: hidden; box-shadow: none; }
 .af-store { display: flex; align-items: center; padding: 18px 20px 12px; gap: 16px; background: transparent; }
 .af-logo { width: 72px; height: 72px; border-radius: 12px; object-fit: cover; flex-shrink: 0; background: #F3F6F8; }
 .af-detail { flex: 1; min-width: 0; display: flex; flex-direction: column; justify-content: center; }
@@ -417,8 +417,9 @@ body[data-tab="vip"] .af-chips { display: none; }
     ];
     // 供 tab 切换替换推荐组
     window.__getCollapseThreshold = function(){
-      if(!agentFull){ return 112; }
-      return agentFull.offsetTop + 112;
+      if(!agentFull){ return 320; }
+      // 完整 Agent 的尾部刚好被 191px 高的吸顶白底遮住时，完成缩略态。
+      return Math.max(0, agentFull.offsetTop + agentFull.offsetHeight - 191);
     };
     window.__setAgentBatches = function(batches){
       recommendationBatches = batches;
@@ -431,15 +432,22 @@ body[data-tab="vip"] .af-chips { display: none; }
       collapseRaf = 0;
       if(!agentFull || !agentRegion){ return; }
 
-      var top = agentFull.getBoundingClientRect().top;
-      // 完整搜索框从顶部上移 16px 后开始交接，移动 96px 后完成缩略态。
-      var progress = Math.max(0, Math.min(1, (-top - 16) / 96));
-      var compactShift = -10 * (1 - progress);
-      var compactScale = 0.985 + 0.015 * progress;
+      var bottom = agentFull.getBoundingClientRect().bottom;
+      // 完整卡尾部从 287px 移到 191px 的过程中连续交接；完成时完整态已被白底完全遮住。
+      var progress = Math.max(0, Math.min(1, (287 - bottom) / 96));
+      // 卡片内容采用 ease-out 提前建立识别，白色遮挡层更快变实，消除两种状态文字叠影。
+      var compactOpacity = 1 - Math.pow(1 - progress, 3);
+      var compactBackdropOpacity = Math.min(1, progress * 4);
+      var compactBackdropHeight = Math.max(191, Math.min(287, bottom));
+      // 缩略卡始终锚定在同一位置，只做淡入与轻微缩放，避免纵向“吐出”感。
+      var compactShift = 0;
+      var compactScale = 0.985 + 0.015 * compactOpacity;
       var fullSearchOpacity = 1 - progress;
       var fullSearchScale = 1 - 0.018 * progress;
 
-      agentRegion.style.setProperty('--compact-opacity', progress.toFixed(3));
+      agentRegion.style.setProperty('--compact-opacity', compactOpacity.toFixed(3));
+      agentRegion.style.setProperty('--compact-backdrop-opacity', compactBackdropOpacity.toFixed(3));
+      agentRegion.style.setProperty('--compact-backdrop-height', compactBackdropHeight.toFixed(2) + 'px');
       agentRegion.style.setProperty('--compact-shift', compactShift.toFixed(2) + 'px');
       agentRegion.style.setProperty('--compact-scale', compactScale.toFixed(4));
       agentRegion.style.setProperty('--full-search-opacity', fullSearchOpacity.toFixed(3));
