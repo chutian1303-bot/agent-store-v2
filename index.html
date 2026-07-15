@@ -96,6 +96,7 @@ body { background: #FFFFFF; font-family: 'PingFang SC','Noto Sans SC',-apple-sys
 .sticky-header.is-collapsed { padding-bottom: 0; }
 .sticky-header.is-stuck:not(.is-collapsed)::after { opacity: 0; }
 .sticky-header::after { display: none; }
+.sticky-header::before { content: ''; position: absolute; top: 0; left: 0; right: 0; z-index: 1; height: 161px; background: #FFFFFF; opacity: var(--compact-opacity); will-change: opacity; pointer-events: none; }
 
 /* 收起态：固定尺寸覆盖接管，不再通过 max-height 从上向下展开 */
 .agent-compact { position: absolute; top: 0; left: 12px; z-index: 2; width: 726px; height: 161px; margin: 0; border: none; border-radius: 20px; background: var(--agent-surface); overflow: hidden; opacity: var(--compact-opacity); transform: translateY(var(--compact-shift)) scale(var(--compact-scale)); transform-origin: top center; box-shadow: 0 10px 30px rgba(255,98,0,0.10); will-change: opacity, transform; pointer-events: none; }
