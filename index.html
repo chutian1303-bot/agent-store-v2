@@ -172,7 +172,7 @@ body { background: #FFFFFF; font-family: 'PingFang SC','Noto Sans SC',-apple-sys
 .cat-tab.active::after { content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 250px; height: 4px; border-radius: 2px; background: var(--color-text); }
 
 /* 筛选排序栏 */
-.filter-bar { width: 750px; height: 90px; background: #FFFFFF; padding: 36px 0 28px 32px; display: flex; align-items: center; gap: 0; position: sticky; top: 256px; z-index: 45; box-shadow: 0 8px 18px rgba(17,25,45,0.06); }
+.filter-bar { width: 750px; height: 90px; background: #FFFFFF; padding: 36px 0 28px 32px; display: flex; align-items: center; gap: 0; position: relative; box-shadow: none; }
 .filter-item { font-size: 26px; font-weight: 400; color: var(--color-text); margin-right: 32px; display: flex; align-items: center; gap: 6px; white-space: nowrap; }
 .filter-item.active { font-weight: 600; color: var(--color-orange); }
 .filter-arrow { width: 12px; height: 8px; margin-left: 4px; }
