@@ -132,23 +132,26 @@ body { background: #FFFFFF; font-family: 'PingFang SC','Noto Sans SC',-apple-sys
 .af-tmall { width: 53px; height: 27px; flex-shrink: 0; }
 .af-cert { display: inline-flex; align-items: center; height: 27px; padding: 0 9px; border-radius: 7px; background: #1C2540; border: none; flex-shrink: 0; }
 .af-cert span { font-size: 18px; font-weight: 600; color: #E8C88A; line-height: 1; font-family: 'PingFang SC'; white-space: nowrap; }
-.af-meta-row { display: flex; align-items: center; margin-top: 12px; height: 20px; }
+.af-meta-row { display: flex; align-items: center; margin-top: 12px; height: 24px; min-width: 0; }
 .af-stars { width: 93px; height: 17px; display: block; }
 .af-score { font-size: 20px; font-weight: 600; color: #FF0036; margin-left: 8px; line-height: 20px; font-family: 'PingFang SC'; }
 .af-divider { width: 2px; height: 18px; border-radius: 1px; background: #D8CBB6; margin: 0 8px; }
 .af-fans { font-size: 20px; font-weight: 400; color: #9C8A70; line-height: 20px; font-family: 'PingFang SC'; }
+.af-divider--tag { width: 1px; height: 16px; margin: 0 8px; background: rgba(216,203,182,0.85); }
+.af-store-flip { width: 136px; height: 24px; border-radius: 7px; background: rgba(255,255,255,0.68); border: 1px solid rgba(232,201,153,0.56); overflow: hidden; flex-shrink: 0; color: #8C6B34; font-family: 'PingFang SC'; }
+.af-store-flip-track { display: flex; flex-direction: column; transform-origin: center center; animation: storeTagFlip 10s infinite; }
+.af-store-flip-item { width: 134px; height: 22px; padding: 0 8px; display: flex; align-items: center; justify-content: center; gap: 4px; font-size: 18px; font-weight: 500; line-height: 22px; white-space: nowrap; }
+.af-store-flip-icon { color: #E5A33A; font-size: 16px; line-height: 1; }
+@keyframes storeTagFlip {
+  0%,16% { transform: translateY(0) rotateX(0deg); }
+  20%,36% { transform: translateY(-22px) rotateX(0deg); }
+  40%,56% { transform: translateY(-44px) rotateX(0deg); }
+  60%,76% { transform: translateY(-66px) rotateX(0deg); }
+  80%,96% { transform: translateY(-88px) rotateX(0deg); }
+  18%,38%,58%,78% { filter: blur(0.2px); }
+  100% { transform: translateY(-88px) rotateX(0deg); }
+}
 .af-follow { width: 92px; height: 60px; border-radius: 12px; background: #FF6200; color: #FFFFFF; font-size: 26px; font-weight: 600; display: flex; align-items: center; justify-content: center; margin-left: auto; flex-shrink: 0; font-family: 'PingFang SC'; }
-.af-tags { height: 60px; overflow: hidden; position: relative; padding: 0 0 8px; background: transparent; }
-.af-tags-track { display: inline-flex; align-items: center; gap: 12px; padding-left: 20px; animation: marquee 40s linear infinite; white-space: nowrap; }
-.af-tag-rank { height: 44px; border-radius: 8px; background: rgba(247,239,224,0.92); display: inline-flex; align-items: center; padding: 0 14px; gap: 8px; flex-shrink: 0; }
-.af-tag-rank img { height: 22px; width: auto; display: block; }
-.af-tag-rank span { font-size: 24px; font-weight: 600; color: #3E2200; line-height: 1; font-family: 'PingFang SC'; white-space: nowrap; }
-.af-tag { height: 44px; border-radius: 8px; background: rgba(255,255,255,0.56); display: inline-flex; align-items: center; padding: 0 14px; gap: 6px; flex-shrink: 0; }
-.af-tag img { width: 22px; height: 22px; display: block; }
-.af-tag span { font-size: 24px; font-weight: 400; line-height: 1; font-family: 'PingFang SC'; white-space: nowrap; }
-.af-tag .o { color: #FF6200; }
-.af-tag .r { color: #FF0036; }
-.af-tag .b { color: #11192D; }
 .af-split { height: 0; border-top: 1px dashed var(--agent-divider); margin: 4px 20px 0; }
 .af-guide { padding: 14px 20px 18px; background: transparent; }
 .af-guide-head { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
@@ -341,22 +344,19 @@ body[data-tab="vip"] .af-chips { display: none; }
             <span class="af-score">4.9</span>
             <span class="af-divider"></span>
             <span class="af-fans">628万粉丝</span>
+            <span class="af-divider af-divider--tag"></span>
+            <div class="af-store-flip" aria-label="店铺标签轮播">
+              <div class="af-store-flip-track">
+                <span class="af-store-flip-item"><span class="af-store-flip-icon">👍</span>8千人评价</span>
+                <span class="af-store-flip-item"><span class="af-store-flip-icon">▣</span>10年老店</span>
+                <span class="af-store-flip-item"><span class="af-store-flip-icon">♛</span>品牌榜TOP1</span>
+                <span class="af-store-flip-item"><span class="af-store-flip-icon">↻</span>10万回头客</span>
+                <span class="af-store-flip-item"><span class="af-store-flip-icon">👍</span>8千人评价</span>
+              </div>
+            </div>
           </div>
         </div>
         <div class="af-follow">关注</div>
-      </div>
-
-      <div class="af-tags">
-        <div class="af-tags-track">
-          <div class="af-tag-rank"><img src="https://img.alicdn.com/imgextra/i4/O1CN01f4ZDW71wGkpO6lTFB_!!6000000006281-2-tps-26-50.png" alt=""><span>运动用品品牌榜TOP1</span><img src="https://img.alicdn.com/imgextra/i2/O1CN01pqJaP91iugjzlTWRk_!!6000000004473-2-tps-24-50.png" alt=""></div>
-          <div class="af-tag"><img src="https://img.alicdn.com/imgextra/i3/O1CN01qzl5rS1e0Zkl8dG9o_!!6000000003809-2-tps-48-48.png" alt=""><span><span class="b">10年老店</span></span></div>
-          <div class="af-tag"><img src="https://img.alicdn.com/imgextra/i1/O1CN01MNCZRp1WAB888Dgso_!!6000000002747-2-tps-48-48.png" alt=""><span><span class="r">8千人</span><span class="b">好评</span></span></div>
-          <div class="af-tag"><span><span class="b">近90天</span><span class="o">10万</span><span class="b">回头客</span></span></div>
-          <div class="af-tag-rank"><img src="https://img.alicdn.com/imgextra/i4/O1CN01f4ZDW71wGkpO6lTFB_!!6000000006281-2-tps-26-50.png" alt=""><span>运动用品品牌榜TOP1</span><img src="https://img.alicdn.com/imgextra/i2/O1CN01pqJaP91iugjzlTWRk_!!6000000004473-2-tps-24-50.png" alt=""></div>
-          <div class="af-tag"><img src="https://img.alicdn.com/imgextra/i3/O1CN01qzl5rS1e0Zkl8dG9o_!!6000000003809-2-tps-48-48.png" alt=""><span><span class="b">10年老店</span></span></div>
-          <div class="af-tag"><img src="https://img.alicdn.com/imgextra/i1/O1CN01MNCZRp1WAB888Dgso_!!6000000002747-2-tps-48-48.png" alt=""><span><span class="r">8千人</span><span class="b">好评</span></span></div>
-          <div class="af-tag"><span><span class="b">近90天</span><span class="o">10万</span><span class="b">回头客</span></span></div>
-        </div>
       </div>
 
       <div class="af-split"></div>
